@@ -20,7 +20,7 @@ const ExpenseList = ({ selectedYear, expenses }: ExpenseListProps): JSX.Element 
                         amount={amount}
                         key={title + date}
                     />)
-                : <Card><p>Nothing to show.</p></Card>
+                : <Card className="expenseItem"><p>Nothing to show.</p></Card>
             }
         </Card>
     );
