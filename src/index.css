@@ -11,12 +11,10 @@ html, body, body > div {
   padding: 0;
 }
 
-body {
-  background-color: indigo;
-}
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: steelblue;
 }
