@@ -10,6 +10,7 @@ export type ExpenseItemProps = {
 }
 
 const ExpenseItem = ({ date, title, amount }: ExpenseItemProps): JSX.Element => {
+
     return (
         <Card className="expenseItem">
             <ExpenseDate date={date}/>

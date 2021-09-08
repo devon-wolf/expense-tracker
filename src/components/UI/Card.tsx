@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Card.css';
 
 export type WrapperProps = {
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | (JSX.Element | undefined)[];
     className?: string;
 }
 

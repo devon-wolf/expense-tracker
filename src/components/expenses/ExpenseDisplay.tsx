@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import ExpenseChart from './ExpenseChart';
-import ExpenseList, { ExpenseListProps } from './ExpenseList';
+import ExpenseList from './ExpenseList';
 import './styles/ExpenseDisplay.css';
 import Layout from '../UI/Layout';
 import ExpenseFilter from './ExpenseFilter';
 import Card from '../UI/Card';
+import { ExpenseItemProps } from './ExpenseItem';
 
-const ExpenseDisplay = ({ expenses }: ExpenseListProps): JSX.Element => {
+type ExpenseDisplayProps = {
+    expenses: ExpenseItemProps[];
+}
+const ExpenseDisplay = ({ expenses }: ExpenseDisplayProps): JSX.Element => {
     const [year, setYear] = useState('2021');
 
     console.log(year);
@@ -16,7 +20,7 @@ const ExpenseDisplay = ({ expenses }: ExpenseListProps): JSX.Element => {
             <Layout className="expenseDisplay">
                 <ExpenseFilter year={year} handleYearChange={e => setYear(e.target.value)}/>
                 <ExpenseChart />
-                <ExpenseList expenses={expenses}/>
+                <ExpenseList selectedYear={year} expenses={expenses}/>
             </Layout>
         </Card>
         
