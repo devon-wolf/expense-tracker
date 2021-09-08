@@ -1,15 +1,16 @@
 import React from 'react';
-import Card from '../UI/Card';
 import ExpenseChart from './ExpenseChart';
 import ExpenseList from './ExpenseList';
 import { expenses } from '../../data/seedExpenses';
+import './styles/ExpenseDisplay.css';
+import Layout from '../UI/Layout';
 
 const ExpenseDisplay = (): JSX.Element => {
     return (
-        <Card>
+        <Layout className="expenseDisplay">
             <ExpenseChart />
             <ExpenseList expenses={expenses}/>
-        </Card>
+        </Layout>
     );
 };
 

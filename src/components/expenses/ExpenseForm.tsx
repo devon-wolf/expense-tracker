@@ -1,25 +1,30 @@
 import React from 'react';
+import Card from '../UI/Card';
+import './styles/ExpenseForm.css';
 
 const ExpenseForm = (): JSX.Element => {
     return (
-        <form className="expenseForm">
-            <label>
-                Date
-                <input type="date" />
-            </label>
+        <Card>
+            <form className="expenseForm">
+                <label>
+                    <span>Date</span>
+                    <input type="date" />
+                </label>
 
-            <label>
-                Description
-                <input type="text"/>
-            </label>
+                <label>
+                    <span>Description</span>
+                    <input type="text"/>
+                </label>
 
-            <label>
-                Amount
-                <input type="number"/>
-            </label>
+                <label>
+                    <span>Amount</span>
+                    <input type="number"/>
+                </label>
             
-            <button>Add Expense</button>
-        </form>
+                <button>Add Expense</button>
+            </form>
+        </Card>
+        
     );
 };
 
