@@ -66,8 +66,8 @@ const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
                             onChange={e => setAmountString(e.target.value)}
                         />
                     </label>
-                    <button onClick={toggleActive}>Cancel</button>
                     <button>Add Expense</button>
+                    <button onClick={toggleActive}>Cancel</button>
                 </form>
 
                 :   <button onClick={toggleActive}>Add Expense</button>

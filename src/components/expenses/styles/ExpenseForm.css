@@ -13,3 +13,7 @@
     justify-content: space-between;
     margin-bottom: .5rem;
 }
+
+.expenseForm label span {
+    font-weight: bold;
+}
