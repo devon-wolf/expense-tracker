@@ -1,11 +1,10 @@
 import React from 'react';
 import ExpenseChart from './ExpenseChart';
-import ExpenseList from './ExpenseList';
-import { expenses } from '../../data/seedExpenses';
+import ExpenseList, { ExpenseListProps } from './ExpenseList';
 import './styles/ExpenseDisplay.css';
 import Layout from '../UI/Layout';
 
-const ExpenseDisplay = (): JSX.Element => {
+const ExpenseDisplay = ({ expenses }: ExpenseListProps): JSX.Element => {
     return (
         <Layout className="expenseDisplay">
             <ExpenseChart />

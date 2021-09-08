@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../UI/Card';
 import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
 
-type ExpenseListProps = {
+export type ExpenseListProps = {
     expenses: ExpenseItemProps[]
 };
 
