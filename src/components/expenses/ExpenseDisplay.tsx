@@ -3,6 +3,8 @@ import ExpenseChart from './ExpenseChart';
 import ExpenseList, { ExpenseListProps } from './ExpenseList';
 import './styles/ExpenseDisplay.css';
 import Layout from '../UI/Layout';
+import ExpenseFilter from './ExpenseFilter';
+import Card from '../UI/Card';
 
 const ExpenseDisplay = ({ expenses }: ExpenseListProps): JSX.Element => {
     const [year, setYear] = useState('2021');
@@ -10,22 +12,14 @@ const ExpenseDisplay = ({ expenses }: ExpenseListProps): JSX.Element => {
     console.log(year);
 
     return (
-        <>
-            <div>
-                <label>Filter by year</label>
-                <select
-                    value={year}
-                    onChange={e => setYear(e.target.value)}
-                >
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                </select>
-            </div>
+        <Card className="expenseCard">
             <Layout className="expenseDisplay">
+                <ExpenseFilter year={year} handleYearChange={e => setYear(e.target.value)}/>
                 <ExpenseChart />
                 <ExpenseList expenses={expenses}/>
             </Layout>
-        </>
+        </Card>
+        
     );
 };
 

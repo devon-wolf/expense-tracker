@@ -1,0 +1,13 @@
+.expenseCard {
+    background-color: azure;
+}
+
+.expenseDisplay {
+    grid-template-rows: min-content min-content 1fr !important;
+}
+
+.expenseFilter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
