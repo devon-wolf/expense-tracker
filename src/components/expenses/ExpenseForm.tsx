@@ -8,6 +8,7 @@ type ExpenseFormProps = {
 }
 
 const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
+    const [active, setActive] = useState(false);
     const [dateString, setDateString] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [amountString, setAmountString] = useState<string>('');
@@ -28,45 +29,50 @@ const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
         setAmountString('');
     };
 
+    const toggleActive = (): void => setActive(!active); 
+
     return (
         <Card>
-            <form 
-                className="expenseForm"
-                onSubmit={handleExpenseForm}
-            >
-                <label>
-                    <span>Date</span>
-                    <input
-                        type="date"
-                        value={dateString}
-                        onChange={e => setDateString(e.target.value)} 
-                    />
-                </label>
+            {active ?   
+                <form 
+                    className="expenseForm"
+                    onSubmit={handleExpenseForm}
+                >
+                    <label>
+                        <span>Date</span>
+                        <input
+                            type="date"
+                            value={dateString}
+                            onChange={e => setDateString(e.target.value)} 
+                        />
+                    </label>
 
-                <label>
-                    <span>Description</span>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={e => setTitle(e.target.value)}
-                    />
-                </label>
+                    <label>
+                        <span>Description</span>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={e => setTitle(e.target.value)}
+                        />
+                    </label>
 
-                <label>
-                    <span>Amount</span>
-                    <input
-                        type="number"
-                        min="0.01"
-                        step="0.01"
-                        value={amountString}
-                        onChange={e => setAmountString(e.target.value)}
-                    />
-                </label>
-            
-                <button>Add Expense</button>
-            </form>
+                    <label>
+                        <span>Amount</span>
+                        <input
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            value={amountString}
+                            onChange={e => setAmountString(e.target.value)}
+                        />
+                    </label>
+                    <button onClick={toggleActive}>Cancel</button>
+                    <button>Add Expense</button>
+                </form>
+
+                :   <button onClick={toggleActive}>Add Expense</button>
+            }
         </Card>
-        
     );
 };
 

@@ -13,8 +13,6 @@ type ExpenseDisplayProps = {
 const ExpenseDisplay = ({ expenses }: ExpenseDisplayProps): JSX.Element => {
     const [year, setYear] = useState('2021');
 
-    console.log(year);
-
     return (
         <Card className="expenseCard">
             <Layout className="expenseDisplay">
