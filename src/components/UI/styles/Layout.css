@@ -1,0 +1,6 @@
+.layout {
+    border: solid 4px chartreuse;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    row-gap: 1rem;
+}

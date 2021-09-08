@@ -1,0 +1,13 @@
+.expensePage {
+    border: solid 4px skyblue;
+    width: 100%;
+    height: 100%;
+}
+
+.expenseForm {
+    background-color: peru;
+}
+
+.expenseChart {
+    background-color: orchid;
+}

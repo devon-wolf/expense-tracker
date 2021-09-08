@@ -2,7 +2,7 @@ import React from 'react';
 
 const ExpenseForm = (): JSX.Element => {
     return (
-        <form>
+        <form className="expenseForm">
             <label>
                 Date
                 <input type="date" />

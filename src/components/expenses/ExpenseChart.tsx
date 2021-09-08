@@ -4,7 +4,7 @@ import Card from '../UI/Card';
 const ExpenseChart = (): JSX.Element => {
     return (
         <Card>
-            <div>
+            <div className="expenseChart">
                 This div will be a beautiful chart.
             </div>
         </Card>

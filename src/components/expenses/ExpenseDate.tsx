@@ -7,7 +7,7 @@ const ExpenseDate = ({ date }: { date: Date }): JSX.Element => {
     const year = date.getFullYear();
   
     return (
-        <Card>
+        <Card className="expenseDate">
             <div className="expenseMonth">{month}</div>
             <div className="expenseYear">{year}</div>
             <div className="expenseDay">{day}</div>
