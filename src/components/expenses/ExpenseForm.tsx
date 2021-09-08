@@ -1,20 +1,31 @@
 import React, { FormEvent, useState } from 'react';
 import Card from '../UI/Card';
+import { ExpenseItemProps } from './ExpenseItem';
 import './styles/ExpenseForm.css';
 
+type ExpenseFormProps = {
+    onExpenseSubmit: (expenseData: ExpenseItemProps) => void;
+}
 
-const ExpenseForm = (): JSX.Element => {
-    const [dateString, setDateString] = useState<string | null>(null);
-    const [title, setTitle] = useState<string | null>(null);
-    const [amountString, setAmountString] = useState<string | null>(null);
+const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
+    const [dateString, setDateString] = useState<string>('');
+    const [title, setTitle] = useState<string>('');
+    const [amountString, setAmountString] = useState<string>('');
 
     const handleExpenseForm = (e: FormEvent): void => {
         e.preventDefault();
-        // create a new expense item for the new expense
-        console.log(dateString, title, amountString);
-        setDateString(null);
-        setTitle(null);
-        setAmountString(null);
+
+        const expenseData = {
+            date: new Date(dateString),
+            title,
+            amount: Number(amountString)
+        };
+
+        onExpenseSubmit(expenseData);
+
+        setDateString('');
+        setTitle('');
+        setAmountString('');
     };
 
     return (
@@ -27,7 +38,7 @@ const ExpenseForm = (): JSX.Element => {
                     <span>Date</span>
                     <input
                         type="date"
-                        value={dateString || ''}
+                        value={dateString}
                         onChange={e => setDateString(e.target.value)} 
                     />
                 </label>
@@ -36,7 +47,7 @@ const ExpenseForm = (): JSX.Element => {
                     <span>Description</span>
                     <input
                         type="text"
-                        value={title || ''}
+                        value={title}
                         onChange={e => setTitle(e.target.value)}
                     />
                 </label>
@@ -45,7 +56,9 @@ const ExpenseForm = (): JSX.Element => {
                     <span>Amount</span>
                     <input
                         type="number"
-                        value={amountString || ''}
+                        min="0.01"
+                        step="0.01"
+                        value={amountString}
                         onChange={e => setAmountString(e.target.value)}
                     />
                 </label>
