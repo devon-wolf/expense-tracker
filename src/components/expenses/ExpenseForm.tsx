@@ -2,9 +2,24 @@ import React from 'react';
 
 const ExpenseForm = (): JSX.Element => {
     return (
-        <div>
+        <form>
+            <label>
+                Date
+                <input type="date" />
+            </label>
+
+            <label>
+                Description
+                <input type="text"/>
+            </label>
+
+            <label>
+                Amount
+                <input type="number"/>
+            </label>
             
-        </div>
+            <button>Add Expense</button>
+        </form>
     );
 };
 

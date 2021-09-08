@@ -1,9 +1,16 @@
 import React from 'react';
+import './styles/Card.css';
 
-const Card = (): JSX.Element => {
+type CardProps = {
+    children: JSX.Element | JSX.Element[];
+    className?: string;
+}
+
+const Card = ({ className, children }: CardProps): JSX.Element => {
+    const classes = 'card ' + className;
     return (
-        <div>
-            
+        <div className={classes}>
+            {children}
         </div>
     );
 };

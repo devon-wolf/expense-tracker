@@ -1,10 +1,23 @@
 import React from 'react';
+import Card from '../UI/Card';
+import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
 
-const ExpenseList = (): JSX.Element => {
+type ExpenseListProps = {
+    expenses: ExpenseItemProps[]
+};
+
+const ExpenseList = ({ expenses }: ExpenseListProps): JSX.Element => {
     return (
-        <div>
-            
-        </div>
+        <Card>
+            {expenses.map(({ date, title, amount }) =>
+                <ExpenseItem
+                    date={date}
+                    title={title}
+                    amount={amount}
+                    key={title + date}
+                />
+            )}
+        </Card>
     );
 };
 
