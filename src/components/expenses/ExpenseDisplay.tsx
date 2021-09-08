@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExpensePage = (): JSX.Element => {
+const ExpenseDisplay = (): JSX.Element => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const ExpensePage = (): JSX.Element => {
     );
 };
 
-export default ExpensePage;
+export default ExpenseDisplay;
