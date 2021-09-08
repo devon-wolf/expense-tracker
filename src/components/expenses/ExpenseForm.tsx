@@ -12,6 +12,8 @@ const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
     const [dateString, setDateString] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [amountString, setAmountString] = useState<string>('');
+    
+    const toggleActive = (): void => setActive(!active); 
 
     const handleExpenseForm = (e: FormEvent): void => {
         e.preventDefault();
@@ -23,13 +25,13 @@ const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
         };
 
         onExpenseSubmit(expenseData);
+        toggleActive();
 
         setDateString('');
         setTitle('');
         setAmountString('');
     };
 
-    const toggleActive = (): void => setActive(!active); 
 
     return (
         <Card>
@@ -66,8 +68,8 @@ const ExpenseForm = ({ onExpenseSubmit }: ExpenseFormProps): JSX.Element => {
                             onChange={e => setAmountString(e.target.value)}
                         />
                     </label>
-                    <button>Add Expense</button>
-                    <button onClick={toggleActive}>Cancel</button>
+                    <button type="submit">Add Expense</button>
+                    <button type="button" onClick={toggleActive}>Cancel</button>
                 </form>
 
                 :   <button onClick={toggleActive}>Add Expense</button>
