@@ -8,21 +8,20 @@ export type ExpenseListProps = {
 };
 
 const ExpenseList = ({ selectedYear, expenses }: ExpenseListProps): JSX.Element => {
+    const filteredExpenses = expenses.filter(({ date }) => date.getFullYear().toString() === selectedYear);
+
     return (
         <Card>
-            {expenses.map(({ date, title, amount }) => {
-                if (date.getFullYear().toString() === selectedYear)
-                    return (
-                        <ExpenseItem
-                            date={date}
-                            title={title}
-                            amount={amount}
-                            key={title + date}
-                        />
-                    );
+            {filteredExpenses.length
+                ?   filteredExpenses.map(({ date, title, amount }) =>
+                    <ExpenseItem
+                        date={date}
+                        title={title}
+                        amount={amount}
+                        key={title + date}
+                    />)
+                : <Card><p>Nothing to show.</p></Card>
             }
-                
-            )}
         </Card>
     );
 };
