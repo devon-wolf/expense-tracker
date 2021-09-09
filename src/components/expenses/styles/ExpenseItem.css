@@ -7,7 +7,7 @@
 }
 
 .expenseDate {
-    background-color: aliceblue;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .expenseYear {
-    background-color: rebeccapurple;
+    background-color: darkslategray;
     color: white;
     width: 100%;
     text-align: center;
