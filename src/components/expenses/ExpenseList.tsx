@@ -3,17 +3,15 @@ import Card from '../UI/Card';
 import ExpenseItem, { ExpenseItemProps } from './ExpenseItem';
 
 export type ExpenseListProps = {
-    selectedYear: string;
     expenses: ExpenseItemProps[]
 };
 
-const ExpenseList = ({ selectedYear, expenses }: ExpenseListProps): JSX.Element => {
-    const filteredExpenses = expenses.filter(({ date }) => date.getFullYear().toString() === selectedYear);
+const ExpenseList = ({ expenses }: ExpenseListProps): JSX.Element => {
 
     return (
         <Card>
-            {filteredExpenses.length
-                ?   filteredExpenses.map(({ date, title, amount }) =>
+            {expenses.length
+                ?   expenses.map(({ date, title, amount }) =>
                     <ExpenseItem
                         date={date}
                         title={title}

@@ -13,10 +13,12 @@ const ExpensePage = (): JSX.Element => {
         setExpenseList(() => [...expenseList, expenseData]);
     };
 
+    
+
     return (
         <Layout className="expensePage">
             <ExpenseForm onExpenseSubmit={handleExpenseSubmit}/>
-            <ExpenseDisplay expenses={expenseList}/>
+            <ExpenseDisplay expenses={expenseList} />
         </Layout>
     );
 };

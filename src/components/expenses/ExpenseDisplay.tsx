@@ -12,13 +12,35 @@ type ExpenseDisplayProps = {
 }
 const ExpenseDisplay = ({ expenses }: ExpenseDisplayProps): JSX.Element => {
     const [year, setYear] = useState('2021');
+    const filteredExpenses = expenses.filter(({ date }) => date.getFullYear().toString() === year);
+
+    const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const chartData = monthLabels.map(label => {
+        return {
+            label,
+            value: 0,
+            maxValue: 0
+        };
+    });
+    
+    let max = 0;
+
+    filteredExpenses.forEach(({ date, amount }) => {
+        const month = date.getMonth();
+        chartData[month].value += amount;
+        if (max < amount) max = amount;
+    });
+
+    chartData.forEach(item => {
+        item.maxValue = max;
+    });
 
     return (
         <Card className="expenseCard">
             <Layout className="expenseDisplay">
                 <ExpenseFilter year={year} handleYearChange={e => setYear(e.target.value)}/>
-                <ExpenseChart />
-                <ExpenseList selectedYear={year} expenses={expenses}/>
+                <ExpenseChart chartData={chartData} />
+                <ExpenseList expenses={filteredExpenses} />
             </Layout>
         </Card>
         
